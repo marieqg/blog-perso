@@ -63,7 +63,7 @@ const IndexPage = () => {
       <GalerieDisplayContainer link={"/nouvelle-zelande/ile-du-nord"} image={NZNI.childImageSharp.fixed}></GalerieDisplayContainer>
 
       <H2DarkCentered>Projet Daily Pick</H2DarkCentered>
-      <TextDarkCentered>Une photo, tous les jours, sans filtres et sans fioritures ...</TextDarkCentered>
+      <TextDarkCentered>Une photo, tous les jours, sans filtre et sans fioriture ...</TextDarkCentered>
       <div style={{ maxWidth: `900px`, marginBottom: `1.45rem`, display: 'flex' }}>
         {arrayOfInstaImages.map((item, i) => {
           return (
