@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Blog de voyage`,
-    description: `Blog de voyage de Marie`,
+    title: `Blog de photo`,
+    description: `Blog de photo de Marie `,
     author: `Blooming&Co.`,
   },
   plugins: [
@@ -19,6 +19,7 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-styled-components`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

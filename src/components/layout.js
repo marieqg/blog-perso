@@ -9,8 +9,9 @@ import React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "./header"
+import Header from "./Header"
 import "./layout.css"
+import { Footer, FooterLink } from "./utils/Text"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -34,17 +35,19 @@ const Layout = ({ children }) => {
         }}
       >
         <main>{children}</main>
-        <footer style={{
-          marginTop: `2rem`
-        }}>
+        <Footer> <FooterLink
+          href="http://www.mariequittelier.com/mentions-legales"
+        >
+          Mentions Légales
+          </FooterLink> -
           © {new Date().getFullYear()}, Made
            with ❤️ by{" "}
-          <a
+          <FooterLink
             href="http://www.bloomingandco.com/"
           >
             Blooming & Co.
-          </a>
-        </footer>
+          </FooterLink>
+        </Footer>
       </div>
     </>
   )
