@@ -1,11 +1,20 @@
 
 import { Typography } from '../Typography';
 import styled from "styled-components"
+import { Link } from 'gatsby';
 
 
 export const H2DarkCentered = styled.h2`
   ${Typography['H2 / Dark / Centered']}
 `;
+export const LinkDarkCentered = styled(Link)`
+  ${Typography['H2 / Dark / Centered']};
+  text-decoration: none;
+  display: flex;
+  justify-content: center; 
+  margin: 40px 0 20px 0px
+`;
+
 
 
 export const TextDarkCentered = styled.p`
