@@ -1,7 +1,7 @@
 import React from "react"
 import Img from "gatsby-image"
-import Layout from "../components/Layout"
-import SEO from "../components/Seo"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 import { useStaticQuery, graphql, Link } from "gatsby"
 import _get from "lodash/get";
 import { LinkDarkCentered } from "../components/utils/Text"
