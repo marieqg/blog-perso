@@ -1,13 +1,7 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.com/docs/use-static-query/
- */
-
-import React from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
+import { useWindowSize } from "../components/utils/UseWindowSize"
 
 import Header from "./header"
 import "./layout.css"
@@ -24,9 +18,16 @@ const Layout = ({ children }) => {
     }
   `)
 
+  const size = useWindowSize()
+  const [menuOpen, setMenuOpen] = useState(false)
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header
+        siteTitle={data.site.siteMetadata?.title || `Title`}
+        size={size}
+        menuOpen={menuOpen}
+        setMenuOpen={setMenuOpen}
+      />
       <div
         style={{
           margin: `0 auto`,
@@ -34,17 +35,20 @@ const Layout = ({ children }) => {
           padding: `0 1.0875rem 1.45rem`,
         }}
       >
-        <main>{children}</main>
-        <Footer> <FooterLink
-          href="http://www.mariequittelier.com/mentions-legales"
+        <main
+          onClick={() => {
+            menuOpen && setMenuOpen(false)
+          }}
         >
-          Mentions Légales
-          </FooterLink> -
-          © {new Date().getFullYear()}, Made
-           with ❤️ by{" "}
-          <FooterLink
-            href="http://www.bloomingandco.com/"
-          >
+          {children}
+        </main>
+        <Footer>
+          {" "}
+          <FooterLink href="http://www.mariequittelier.com/mentions-legales">
+            Mentions Légales
+          </FooterLink>{" "}
+          - © {new Date().getFullYear()}, Made with ❤️ by{" "}
+          <FooterLink href="http://www.bloomingandco.com/">
             Blooming & Co.
           </FooterLink>
         </Footer>
