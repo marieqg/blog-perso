@@ -13,6 +13,13 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `vilette`,
+        path: `${__dirname}/src/images/vilette`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
@@ -36,7 +43,7 @@ module.exports = {
       resolve: `gatsby-source-instagram-all`,
       options: {
         access_token: process.env.INSTAGRAM_TOKEN,
-      }
+      },
     },
   ],
 }

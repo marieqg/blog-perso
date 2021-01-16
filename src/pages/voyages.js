@@ -4,6 +4,7 @@ import SEO from "../components/seo"
 import _get from "lodash/get"
 import GalerieDisplayContainer from "../components/common/GalerieDisplayContainer"
 import { useStaticQuery, graphql } from "gatsby"
+import styled from "styled-components"
 
 const VoyagesPage = () => {
   const data = useStaticQuery(graphql`
@@ -38,14 +39,46 @@ const VoyagesPage = () => {
   return (
     <Layout>
       <SEO title="Voyages" />
-      <GalerieDisplayContainer
-        country="Nouvelle Zélande - Ile du Nord"
-        year="2020"
-        link={"/nouvelle-zelande/ile-du-nord"}
-        image={NZNI.childImageSharp.fluid}
-      ></GalerieDisplayContainer>
+      <ContainerGalerie>
+        <GalerieDisplayContainer
+          country="Nouvelle Zélande - Ile du Nord"
+          year="2020"
+          link={"nouvelle-zelande/ile-du-nord"}
+          image={NZNI.childImageSharp.fluid}
+        />
+
+        <GalerieDisplayContainer
+          country="Nouvelle Zélande - Ile du Sud"
+          year="2020"
+          link={"nouvelle-zelande/ile-du-nord"}
+        />
+        <GalerieDisplayContainer country="Laos" year="2018" link={"laos"} />
+        <GalerieDisplayContainer
+          country="Cambodge"
+          year="2018"
+          link={"cambodge"}
+        />
+        <GalerieDisplayContainer
+          country="Thailande"
+          year="2018"
+          link={"thailande"}
+        />
+        <GalerieDisplayContainer
+          country="Birmanie"
+          year="2018"
+          link={"birmanie"}
+        />
+      </ContainerGalerie>
     </Layout>
   )
 }
 
 export default VoyagesPage
+
+const ContainerGalerie = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+`

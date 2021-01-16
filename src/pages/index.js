@@ -57,23 +57,18 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
       <Link to="/voyages" style={{ textDecoration: "none" }}>
-        <GalerieDisplayContainer
-          country="Nouvelle Zélande - Ile du Nord"
-          year="2020"
-          link={"/nouvelle-zelande/ile-du-nord"}
-          image={NZNI.childImageSharp.fluid}
-        />
+        <ContainerGalerie>
+          <GalerieDisplayContainer
+            country="Nouvelle Zélande - Ile du Nord"
+            year="2020"
+            link={"voyages/nouvelle-zelande/ile-du-nord"}
+            image={NZNI.childImageSharp.fluid}
+          />
+        </ContainerGalerie>
       </Link>
       <Link to="/projet-365" style={{ textDecoration: "none" }}>
         <LinkDarkCentered to="/projet-365">Projet 365</LinkDarkCentered>
-        <Container
-          style={{
-            maxWidth: `900px`,
-            marginBottom: `1.45rem`,
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+        <Container>
           {arrayOfInstaImages.map((item, i) => {
             return (
               <div key={i} style={{ width: "200px", height: "200px" }}>
@@ -91,9 +86,19 @@ export default IndexPage
 
 const Container = styled.div`
   height: 100%;
-  max-width: 80%;
+  max-width: 900px;
   margin: auto;
   marginbottom: 1.45rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 1.45rem;
+  display: flex;
+  justify-content: center;
+`
+const ContainerGalerie = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
