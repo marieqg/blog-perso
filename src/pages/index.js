@@ -89,14 +89,12 @@ export default IndexPage
 
 const Container = styled.div`
   height: 100%;
-  max-width: 900px;
   margin: auto;
   marginbottom: 1.45rem;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: row;
-  flex-wrap: wrap;
   margin-bottom: 1.45rem;
   display: flex;
   justify-content: center;
