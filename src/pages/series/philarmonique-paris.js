@@ -32,7 +32,6 @@ const PhilarmoniquePage = () => {
   `)
 
   const arrayOfImage = dataPhilarmonique?.allFile?.edges
-  console.log(arrayOfImage)
   return (
     <Layout>
       <CenterMiddleColumn>

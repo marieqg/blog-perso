@@ -32,7 +32,6 @@ const BlanchisseriePage = () => {
   `)
 
   const arrayOfImage = dataBlanchisserie?.allFile?.edges
-  console.log(arrayOfImage)
   return (
     <Layout>
       <CenterMiddleColumn>
@@ -135,18 +134,18 @@ const BlanchisseriePage = () => {
             height={"350px"}
           />
         </StyledRowSpaceBetweenCenter>
-        {/* <StyledRowSpaceBetweenCenter>
-        <StyledImage
-          fluid={arrayOfImage[6].node.childImageSharp.fluid}
-          imgStyle={{ objectFit: "contain" }}
-          height={"350px"}
-        />
-      <StyledImage
-          fluid={arrayOfImage[25].node.childImageSharp.fluid}
-          imgStyle={{ objectFit: "contain" }}
-          height={"350px"}
-        /> 
-      </StyledRowSpaceBetweenCenter> */}
+        <StyledRowSpaceBetweenCenter>
+          <StyledImage
+            fluid={arrayOfImage[6].node.childImageSharp.fluid}
+            imgStyle={{ objectFit: "contain" }}
+            height={"350px"}
+          />
+          <StyledImage
+            fluid={arrayOfImage[24].node.childImageSharp.fluid}
+            imgStyle={{ objectFit: "contain" }}
+            height={"350px"}
+          />
+        </StyledRowSpaceBetweenCenter>
         <StyledImage
           fluid={arrayOfImage[16].node.childImageSharp.fluid}
           imgStyle={{ objectFit: "contain" }}
