@@ -70,9 +70,12 @@ const IndexPage = () => {
         <LinkDarkCentered to="/projet-365">Projet 365</LinkDarkCentered>
         <Container>
           {arrayOfInstaImages.map((item, i) => {
+            console.log(item)
             return (
               <div key={i} style={{ width: "200px", height: "200px" }}>
-                <Img fixed={item.node.localImage.childImageSharp.fixed} />
+                {item?.node?.localImage?.childImageSharp && (
+                  <Img fixed={item.node.localImage.childImageSharp.fixed} />
+                )}
               </div>
             )
           })}

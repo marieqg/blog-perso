@@ -12,7 +12,7 @@ const GalerieDisplayContainer = ({ link, image, year, country }) => {
           {year && <Year>{year}</Year>}
           {country && <Country>{country}</Country>}
         </TextContainer>
-        {image && <Img fluid={image} />}{" "}
+        {image && <Img fluid={image} greyscale={true} />}{" "}
       </Container>
     </Link>
   )
