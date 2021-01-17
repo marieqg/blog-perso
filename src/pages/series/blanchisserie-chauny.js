@@ -10,11 +10,11 @@ import {
   CenterMiddleColumn,
 } from "../../configs/display"
 
-const VilettePage = () => {
-  const dataVilette = useStaticQuery(graphql`
-    query Vilette {
+const BlanchisseriePage = () => {
+  const dataBlanchisserie = useStaticQuery(graphql`
+    query Blanchisserie {
       allFile(
-        filter: { sourceInstanceName: { eq: "vilette" } }
+        filter: { sourceInstanceName: { eq: "blanchisserie" } }
         sort: { fields: name, order: ASC }
       ) {
         edges {
@@ -31,70 +31,101 @@ const VilettePage = () => {
     }
   `)
 
-  const arrayOfImage = dataVilette?.allFile?.edges
-
+  const arrayOfImage = dataBlanchisserie?.allFile?.edges
+  console.log(arrayOfImage)
   return (
     <Layout>
       <CenterMiddleColumn>
-        <SEO title="Parc de la vilette" />
+        <SEO title="Blanchisserie de chauny" />
 
         <StyledImage
-          fluid={arrayOfImage[14].node.childImageSharp.fluid}
+          fluid={arrayOfImage[19].node.childImageSharp.fluid}
           imgStyle={{ objectFit: "contain" }}
           height={"600px"}
         />
-        <StyledRowSpaceBetweenCenter>
-          <StyledImage
-            fluid={arrayOfImage[13].node.childImageSharp.fluid}
-            imgStyle={{ objectFit: "contain" }}
-            height={"350px"}
-          />
-          <StyledImage
-            fluid={arrayOfImage[12].node.childImageSharp.fluid}
-            imgStyle={{ objectFit: "contain" }}
-            height={"350px"}
-          />
-        </StyledRowSpaceBetweenCenter>
-        <StyledImage
-          fluid={arrayOfImage[10].node.childImageSharp.fluid}
-          imgStyle={{ objectFit: "contain" }}
-          height={"600px"}
-        />
-
-        <StyledRowSpaceBetweenCenter>
-          <StyledImage
-            fluid={arrayOfImage[11].node.childImageSharp.fluid}
-            imgStyle={{ objectFit: "contain" }}
-            height={"350px"}
-          />
-          <StyledImage
-            fluid={arrayOfImage[9].node.childImageSharp.fluid}
-            imgStyle={{ objectFit: "contain" }}
-            height={"350px"}
-          />
-        </StyledRowSpaceBetweenCenter>
         <StyledRowSpaceBetweenCenter>
           <StyledImage
             fluid={arrayOfImage[1].node.childImageSharp.fluid}
             imgStyle={{ objectFit: "contain" }}
             height={"350px"}
           />
-
           <StyledImage
-            fluid={arrayOfImage[0].node.childImageSharp.fluid}
+            fluid={arrayOfImage[2].node.childImageSharp.fluid}
             imgStyle={{ objectFit: "contain" }}
             height={"350px"}
           />
         </StyledRowSpaceBetweenCenter>
-        {/* Children's section */}
+        <StyledRowSpaceBetweenCenter>
+          <StyledImage
+            fluid={arrayOfImage[3].node.childImageSharp.fluid}
+            imgStyle={{ objectFit: "contain" }}
+            height={"350px"}
+          />
+          <StyledImage
+            fluid={arrayOfImage[13].node.childImageSharp.fluid}
+            imgStyle={{ objectFit: "contain" }}
+            height={"350px"}
+          />
+        </StyledRowSpaceBetweenCenter>
+
         <StyledImage
-          fluid={arrayOfImage[6].node.childImageSharp.fluid}
+          fluid={arrayOfImage[12].node.childImageSharp.fluid}
           imgStyle={{ objectFit: "contain" }}
           height={"600px"}
         />
         <StyledRowSpaceBetweenCenter>
           <StyledImage
-            fluid={arrayOfImage[2].node.childImageSharp.fluid}
+            fluid={arrayOfImage[17].node.childImageSharp.fluid}
+            imgStyle={{ objectFit: "contain" }}
+            height={"350px"}
+          />
+          <StyledImage
+            fluid={arrayOfImage[18].node.childImageSharp.fluid}
+            imgStyle={{ objectFit: "contain" }}
+            height={"350px"}
+          />
+        </StyledRowSpaceBetweenCenter>
+        <StyledImage
+          fluid={arrayOfImage[23].node.childImageSharp.fluid}
+          imgStyle={{ objectFit: "contain" }}
+          height={"600px"}
+        />
+
+        <StyledRowSpaceBetweenCenter>
+          <StyledImage
+            fluid={arrayOfImage[20].node.childImageSharp.fluid}
+            imgStyle={{ objectFit: "contain" }}
+            height={"350px"}
+          />
+          <StyledImage
+            fluid={arrayOfImage[21].node.childImageSharp.fluid}
+            imgStyle={{ objectFit: "contain" }}
+            height={"350px"}
+          />
+        </StyledRowSpaceBetweenCenter>
+
+        <StyledImage
+          fluid={arrayOfImage[22].node.childImageSharp.fluid}
+          imgStyle={{ objectFit: "contain" }}
+          height={"600px"}
+        />
+        <StyledRowSpaceBetweenCenter>
+          <StyledImage
+            fluid={arrayOfImage[8].node.childImageSharp.fluid}
+            imgStyle={{ objectFit: "contain" }}
+            height={"350px"}
+          />
+
+          <StyledImage
+            fluid={arrayOfImage[5].node.childImageSharp.fluid}
+            imgStyle={{ objectFit: "contain" }}
+            height={"350px"}
+          />
+        </StyledRowSpaceBetweenCenter>
+
+        <StyledRowSpaceBetweenCenter>
+          <StyledImage
+            fluid={arrayOfImage[4].node.childImageSharp.fluid}
             imgStyle={{ objectFit: "contain" }}
             height={"350px"}
           />
@@ -104,37 +135,59 @@ const VilettePage = () => {
             height={"350px"}
           />
         </StyledRowSpaceBetweenCenter>
+        {/* <StyledRowSpaceBetweenCenter>
+        <StyledImage
+          fluid={arrayOfImage[6].node.childImageSharp.fluid}
+          imgStyle={{ objectFit: "contain" }}
+          height={"350px"}
+        />
+      <StyledImage
+          fluid={arrayOfImage[25].node.childImageSharp.fluid}
+          imgStyle={{ objectFit: "contain" }}
+          height={"350px"}
+        /> 
+      </StyledRowSpaceBetweenCenter> */}
+        <StyledImage
+          fluid={arrayOfImage[16].node.childImageSharp.fluid}
+          imgStyle={{ objectFit: "contain" }}
+          height={"600px"}
+        />
         <StyledRowSpaceBetweenCenter>
-          <StyledImage
-            fluid={arrayOfImage[5].node.childImageSharp.fluid}
-            imgStyle={{ objectFit: "contain" }}
-            height={"350px"}
-          />
-          <StyledImage
-            fluid={arrayOfImage[4].node.childImageSharp.fluid}
-            imgStyle={{ objectFit: "contain" }}
-            height={"350px"}
-          />
-        </StyledRowSpaceBetweenCenter>
-
-        <StyledRowSpaceBetweenCenter>
-          <StyledImage
-            fluid={arrayOfImage[3].node.childImageSharp.fluid}
-            imgStyle={{ objectFit: "contain" }}
-            height={"350px"}
-          />
           <StyledImage
             fluid={arrayOfImage[15].node.childImageSharp.fluid}
             imgStyle={{ objectFit: "contain" }}
             height={"350px"}
           />
+          <StyledImage
+            fluid={arrayOfImage[14].node.childImageSharp.fluid}
+            imgStyle={{ objectFit: "contain" }}
+            height={"350px"}
+          />
         </StyledRowSpaceBetweenCenter>
+
+        <StyledRowSpaceBetweenCenter>
+          <StyledImage
+            fluid={arrayOfImage[10].node.childImageSharp.fluid}
+            imgStyle={{ objectFit: "contain" }}
+            height={"350px"}
+          />
+          <StyledImage
+            fluid={arrayOfImage[11].node.childImageSharp.fluid}
+            imgStyle={{ objectFit: "contain" }}
+            height={"350px"}
+          />
+        </StyledRowSpaceBetweenCenter>
+        <StyledImage
+          fluid={arrayOfImage[0].node.childImageSharp.fluid}
+          imgStyle={{ objectFit: "contain" }}
+          height={"600px"}
+        />
       </CenterMiddleColumn>
     </Layout>
   )
 }
 
-export default VilettePage
+export default BlanchisseriePage
 
 const StyledRowSpaceBetweenCenter = styled(RowSpaceBetweenCenter)``
 

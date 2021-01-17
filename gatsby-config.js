@@ -20,6 +20,20 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `blanchisserie`,
+        path: `${__dirname}/src/images/blanchisserie`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `philarmonique`,
+        path: `${__dirname}/src/images/philarmonique`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
