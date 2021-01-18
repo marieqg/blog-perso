@@ -10,9 +10,9 @@ import { LinkDarkCentered } from "../components/utils/Text"
 import GalerieDisplayContainer from "../components/common/GalerieDisplayContainer"
 
 const IndexPage = () => {
-  const data = useStaticQuery(graphql`
-    query InstagramQuery {
-      allInstagramContent(limit: 3) {
+  const images = useStaticQuery(graphql`
+    query MyQuery {
+      instagram: allInstagramContent(limit: 3) {
         edges {
           node {
             localImage {
@@ -25,34 +25,40 @@ const IndexPage = () => {
           }
         }
       }
-      allFile {
-        edges {
-          node {
-            name
-            childImageSharp {
-              fluid(maxWidth: 350, quality: 100) {
-                ...GatsbyImageSharpFluid
-              }
-            }
+      NZNI: file(name: { eq: "NZNI" }) {
+        childImageSharp {
+          fluid(maxWidth: 350, quality: 100, grayscale: true) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+
+      vilette: file(name: { eq: "Villette-09" }) {
+        childImageSharp {
+          fluid(maxWidth: 650, quality: 100, grayscale: true) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      blanchisserie: file(name: { eq: "Blanchisserie-19" }) {
+        childImageSharp {
+          fluid(maxWidth: 650, quality: 100, grayscale: true) {
+            ...GatsbyImageSharpFluid
+          }
+        }
+      }
+      philarmonique: file(name: { eq: "Philarmonique-19" }) {
+        childImageSharp {
+          fluid(maxWidth: 650, quality: 100, grayscale: true) {
+            ...GatsbyImageSharpFluid
           }
         }
       }
     }
   `)
-  let arrayOfInstaImages = _get(data, "allInstagramContent.edges", [])
-  let images = _get(data, "allFile.edges", [])
 
-  let getImage = name => {
-    let result
-    images.map(image => {
-      if (image.node && image.node.name === name) {
-        result = image.node
-      }
-    })
-    return result
-  }
+  let arrayOfInstaImages = _get(images, "instagram.edges", [])
 
-  let NZNI = getImage("NZNI")
   return (
     <Layout>
       <SEO title="Home" />
@@ -62,15 +68,38 @@ const IndexPage = () => {
             country="Nouvelle Zélande - Ile du Nord"
             year="2020"
             link={"voyages/nouvelle-zelande/ile-du-nord"}
-            image={NZNI.childImageSharp.fluid}
+            image={images?.NZNI?.childImageSharp?.fluid}
           />
         </ContainerGalerie>
+      </Link>
+
+      <Link to="/series" style={{ textDecoration: "none", marginTop: "10px" }}>
+        <LinkDarkCentered to="/series">Séries photographiques</LinkDarkCentered>
+        <Container>
+          <GalerieDisplayContainer
+            country="Parc de la Vilette"
+            year="2019"
+            link={"vilette"}
+            image={images?.vilette?.childImageSharp?.fluid}
+          />
+          <GalerieDisplayContainer
+            country="Philarmonique de Paris"
+            year="2019"
+            link={"philarmonique-paris"}
+            image={images?.philarmonique?.childImageSharp?.fluid}
+          />
+          <GalerieDisplayContainer
+            country="Blanchisserie de chauny"
+            year="2019"
+            link={"blanchisserie-chauny"}
+            image={images?.blanchisserie?.childImageSharp?.fluid}
+          />
+        </Container>
       </Link>
       <Link to="/projet-365" style={{ textDecoration: "none" }}>
         <LinkDarkCentered to="/projet-365">Projet 365</LinkDarkCentered>
         <Container>
           {arrayOfInstaImages.map((item, i) => {
-            console.log(item)
             return (
               <div key={i} style={{ width: "200px", height: "200px" }}>
                 {item?.node?.localImage?.childImageSharp && (
